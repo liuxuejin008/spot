@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="icon" type="image/svg+xml" href="./assets/vite.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Travel</title>
+  <script src="https://hm.baidu.com/hm.js?676bb01e7bc0cbf49ad2d5ad0242c44b"></script>
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?676bb01e7bc0cbf49ad2d5ad0242c44b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <link rel="stylesheet" href="/assets/index-DjFmfAdu.css">
+  <style>
+    .content li {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <header class="absolute flex justify-center top-0 w-screen z-50">
+      <div class="flex justify-between w-[937px] h-[76px] items-center"><a href="/"><img
+            src="/assets/logo-Cw_N4bgk.png" class="h-5" alt="logo"></a>
+        <nav class="flex items-center text-white text-16 font-semibold hover:opacity-80 gap-7"><a
+            class="relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-white"
+            href="https://tourtally.ai/">首页</a><a href="/">实验室</a><a href="/">联系我们</a></nav>
+      </div>
+    </header>
+    <div class="h-[494px] box-border bg-no-repeat bg-cover text-white pt-[76px] flex justify-center"
+      style="background-image: url(/assets/bg-B2d_IvJG.png);">
+      <div class="w-[937px] box-border p-8 flex gap-8 bg-[rgba(90,98,108,0.8)] rounded-20 h-[287px] mt-11">
+        <div class="flex-shrink-0 w-[396px] h-[223px]"><img
+            src="/assets/7382896b854944e1a6c86d783ab34a02_mergeImage.png" class="w-full h-full object-cover"></div>
+        <div class="flex-1 flex flex-col gap-[18px]">
+          <h2 id="js-title" class="text-48 font-semibold"> {{ traline.location }}</h2>
+          <div class="flex items-center text-16 gap-2"><img class="w-5 h-5"
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAFKADAAQAAAABAAAAFAAAAACy3fD9AAABnUlEQVQ4Ec2UzStEURiH72VKUcbXjiSKKBJbWYhsrZWlJQsLdhbKP6EkKSklGwtZWCgLLFhSGpTF1IgwZsroen63cxn3mLkaFt565v36nffeM+fMOE7IPM+bgt1Q2UrRzMNGuOFSHKY4DdWm2Y5vgEOTF3JdNKrg2Agy+KUyPjahxxTlKkDNKKtBcJ8n6iNec3hD2ULQIB6FsSAv5NFMQn/QJ16HnLbsUTyD06BZoh9kXXMwsMQZ1rI3a8uW5IcFNrqoLetQ/tT+/8BYeL98D+XUZqAWjlzX3aY2QdwJl+TL5APEutgp8i38p9GU5d/DFvKcX/U8XScd3K3JH/AxODB5Bl9vNP6hWG/IE68Q6e0q4U5irA3i8EhfDxsiroM0+TP+w6yB6iB6wgnfyLMEwjfyV4KkSb84ayBP18mPg36r5yzeozZC3AEJ8h18QbMGomyCVdDgC9CgFWiEF4bHGZoj/tasgYhvWNSKWt9jwqzqxetByWLDpLUGqsiia5zwjTxFICJNfw5pVCewH6kuLtDJd+uOzUIWfmuaMfcO6bocwGM/wjMAAAAASUVORK5CYII=">
+              {{ traline.start_time|format_datetime }} - {{ traline.end_time|format_datetime }}</div>
+          <div class="text-18 leading-6 line-clamp-4">
+            {{ traline.describe }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-[rgb(236,239,242)] flex flex-col items-center gap-28 pt-9 pb-24">
+        {% for info in traline_infos %}
+      <div class="w-[832px] flex flex-col">
+        <div class="flex gap-[18px]">
+          <div class="flex flex-col gap-3 after:w-[180px] after:h-0.5 after:bg-[#4396FE]">
+            <div class="text-[63px] font-semibold"><span class="text-[#C2C2C2]">Day </span><span
+                class="text-[#4396FE]">  {{ info.day_number+1 }}</span></div>
+          </div>
+          <div class="flex flex-col justify-end gap-1 text-[#414141]">
+            <h3 class="text-[40px] font-semibold">{{ info.title }}</h3>
+            <p class="text-24 font-normal leading-6">{{ info.sub_title }}</p>
+          </div>
+        </div>
+        <div class="content mt-16 text-16 text-[#515151]">
+          {% autoescape false %}
+            {{ info.content |md_html}}
+          {% endautoescape %}
+        </div>
+      </div>
+    {% endfor %}
+
+      <div class="flex justify-center gap-10"><a href="/#"
+          class="flex items-center justify-center rounded-[41px] w-[159px] h-[41px] gap-3 text-white text-18 font-semibold cursor-pointer"
+          style="background: linear-gradient(335deg, rgb(136, 254, 253) 0%, rgb(72, 146, 250) 52%, rgb(188, 5, 226) 100%), rgba(255, 255, 255, 0.3);"><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAZCAYAAAAv3j5gAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAGqADAAQAAAABAAAAGQAAAAALaczaAAACUklEQVRIDaWVTUhUYRSG55puJAPdBGU/YCiK5MIW0sJNQSa1jiBqJyq0CIn2RdCqpUQRJIS2SFSkVYTSooh+FxH4s2kRIiakZSCS03PinOH0zTf3zuiBd87fe95z597vzuRyGZbP5xNwBoyAefAL/Nb4Lr4zQyK7jUgjmAVZ9grCoWzFCIPBHrAabHhH/giMAhHfBmYrBKcjUqVLDDSBdVPAPwaN4QS1o0AWm8ktPRbyojnEGvDGJvH9UaIrwhlw/JfEiWvHQ0iX3dDDOKu4yoz/ZvfJ9xezXAXCc120hW9wrdQQbj34obPi5DbeiA7R2Avs2cxESSlFZi+B98Db9cIIVXkud4C/opsFggvgyHuV+gzonwJyCs3ackTVYNIq6uXYXnT6/0JqdWBOURf2fQ7nJDAblkVXLMN/ARdA9NlQ7wVmZ71wLIb4WskL1RAGlbSG706S5HtsSGt7XM/Hrvxf+JWsC9RW8XFYWy8yliitItek7E1ZtK3JgYokMsjcsm4oJ5Q2KYueadJFs0/jXTl0ehF4qiJ/8CNyGNrAT2D2mWACyN9Ch99Ifh6YnQt6HTTGwKIR1F8t8CiIwFpAkHSqQCIgT1s0FczLxV+zeTl1OQ7BNMVmwiEg9/UI2AAPQLkm3IPgG/gE7qG7hC/fuIh9wsYXfSNq9eUoyWFINYSeQFjF3wqJ1G5Tk5+a8bBXcY7IB2Dm/6d8/LFi4XCADXKa/A+kLTUvvePh3I5yhNrBsik7L7X2HYmWGkJQ3rclt0Ti1lL8XdURbgFvFfI6lG1/AWvQLIKuSOVZAAAAAElFTkSuQmCC">下载行程</a>
+        <a id="share-btn" class="flex items-center justify-center rounded-[41px] w-[159px] h-[41px] gap-3 text-white text-18 font-semibold cursor-pointer"
+          style="background: linear-gradient(335deg, rgb(136, 254, 253) 0%, rgb(72, 146, 250) 52%, rgb(188, 5, 226) 100%), rgba(255, 255, 255, 0.3);"><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAZCAYAAADaILXQAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAF6ADAAQAAAABAAAAGQAAAAAZ12/IAAACFElEQVRIDaWVzUtUURjGbw5pm8aKmsFxBGOggoJWUxa4aDcL/4h2uXfnH9C0CQrChZvQaNOA4CKqTYptWkRiHwi6yoLGD0yNomho/D163uHMx21udx748b7nPed97r3nfgVBh6pWq1mYhg0oQwkGO7QNAkxS8BkatUOhswNgcN+5viT2g65i1tVKHZ09Ju+d0WUzYpxxtXKXFWPGius76fUfc3l8b87uBugmSh9hGPKwANIj74DRUpp6YVLdTnuWePEL+UCTI8XjTUVXYG4E1Cj9hDHQwYqwBLqCB5CueTDogduwBtIW6Nk9rUWK8BhMcyS5mkFYwqKj8BpMmyR/3eAr8RbY3u668ZEwv7o6i8dBWoaLmiSm4QX4esogW9fcbkDDG+dwzV9LTXffdNOfi5zT/R20Dd2NTdRWQDrXOBdpTKOd+XW/gfoJ+AG/oenA/trQnMawPV9lTnoW2txuguZ/PS0y/wV3INnOq+U8jfacfyKX9Dg+gSmogLQOo5BoaRKlSHPdG8r4EjwHk97CgnmR694UYRHewj04ZfORIg0F+AAmvQdD4NdsTp+IVCRjW0RDArQ12iLJ3mSdcR6uwCuQHlrff0Uak6Ct+APSVTMgP3tQ4fdntVgRk3fOaMgMGGdcbTv+3+LQbc6Z3sUwJ2PGE64272K8gNkZsO87aU3fyC7Ec/W6MOkDffv1D5DpDJzXkn1lbxm/ZllzBgAAAABJRU5ErkJggg==">分享行程</a>
+      </div>
+    </div>
+    <div role="region" aria-label="Notifications (F8)" tabindex="-1" style="pointer-events: none;">
+      <ol tabindex="-1"
+        class="fixed top-0 z-[100] flex max-h-screen w-auto flex-col-reverse p-4 left-1/2 -translate-x-1/2 sm:flex-col md:max-w-[720px]">
+      </ol>
+    </div>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script type="text/javascript" src="/assets/main.js"></script>
+</body>
+
+</html>
